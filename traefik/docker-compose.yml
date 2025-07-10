@@ -13,10 +13,11 @@ services:
       - 465:465
       - 993:993
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/traefik:/etc/traefik
-      - acme:/etc/certs
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/localtime:/etc/localtime:ro
+      - acme:/etc/certs
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+  
 
   traefik-certs-dumper:
     image: ghcr.io/kereis/traefik-certs-dumper:latest
