@@ -38,3 +38,7 @@ networks:
       config:
         - subnet: 172.19.0.0/16
   monitor:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
