@@ -1,4 +1,4 @@
-export ENDPOINT=https://mail.benkner-it.com
+export ENDPOINT=http://127.0.0.1:8080
 export PASSWORD=your-password
 alias stalwart-cli='docker exec -ti mailserver stalwart-cli'
 
