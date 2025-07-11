@@ -30,24 +30,24 @@ entryPoints:
 
   smtp:
     address: :25
-    proxyProtocol:
-      trustedIPs:
-        - 172.19.0.2
-        - 172.19.0.5
+    # proxyProtocol:
+    #   trustedIPs:
+    #     - 172.19.0.2
+    #     - 172.19.0.5
 
   smtps:
     address: :465
-    proxyProtocol:
-      trustedIPs:
-        - 172.19.0.2
-        - 172.19.0.5
+    # proxyProtocol:
+    #   trustedIPs:
+    #     - 172.19.0.2
+    #     - 172.19.0.5
 
   imaps:
     address: :993
-    proxyProtocol:
-      trustedIPs:
-        - 172.19.0.2
-        - 172.19.0.5
+    # proxyProtocol:
+    #   trustedIPs:
+    #     - 172.19.0.2
+    #     - 172.19.0.5
 
 tls:
   options:
