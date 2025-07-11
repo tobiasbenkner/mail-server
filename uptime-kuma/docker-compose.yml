@@ -2,6 +2,9 @@ services:
   uptime-kuma:
     image: louislam/uptime-kuma:1
     restart: always
+    networks:
+      - proxy 
+
     volumes:
       - ./data:/app/data
     labels:
@@ -11,3 +14,8 @@ services:
       - traefik.http.routers.uptime-kuma.entrypoints=https
       - traefik.http.routers.uptime-kuma.service=uptime-kuma
       - traefik.http.services.uptime-kuma.loadbalancer.server.port=3001
+
+networks:
+  proxy:
+    name: traefik_proxy
+    external: true
