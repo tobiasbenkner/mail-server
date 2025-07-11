@@ -9,8 +9,8 @@ services:
         ipv4_address: 172.19.0.5
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - data:/opt/stalwart
-      - certs:/data/certs:ro
+      - /opt/mail-server/certs:/data/certs:ro
+      - ./data:/opt/stalwart
     labels:
       - traefik.enable=true
 
