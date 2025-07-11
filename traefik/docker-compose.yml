@@ -28,8 +28,8 @@ services:
       - traefik
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - acme:/traefik:ro
-      - certs:/output
+      - ./acme:/traefik:ro
+      - ./certs:/output
 
 networks:
   mailserver:
