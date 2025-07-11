@@ -4,18 +4,17 @@ services:
     restart: always
     container_name: uptime-kuma
     networks:
-      - proxy 
-
+      - proxy
     volumes:
       - ./data:/app/data
     labels:
       - traefik.enable=true
-
-      - traefik.http.routers.uptime-kuma.rule=Host(`montior.benkner-it.com`)
+      - traefik.http.routers.uptime-kuma.rule=Host(`monitor.benkner-it.com`)
       - traefik.http.routers.uptime-kuma.entrypoints=https
+      - traefik.http.routers.uptime-kuma.tls.certresolver=letsencrypt
       - traefik.http.services.uptime-kuma.loadbalancer.server.port=3001
 
 networks:
   proxy:
-    name: traefik_proxy
+    name: traefik_monitor
     external: true
