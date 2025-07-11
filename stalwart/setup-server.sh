@@ -1,10 +1,11 @@
 export ENDPOINT=http://127.0.0.1:8080
 export PASSWORD=your-password
+export DOMAIN=mail.benkner-it.com
 alias stalwart-cli='docker exec -ti mailserver stalwart-cli'
 
-stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config certificate.default.cert "%{file:/data/certs/mail.example.com/cert.pem}%"
+stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config certificate.default.cert "%{file:/data/certs/${DOMAIN}/cert.pem}%"
 stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config certificate.default.default true
-stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config certificate.default.private-key "%{file:/data/certs/mail.example.com/key.pem}%"
+stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config certificate.default.private-key "%{file:/data/certs/${DOMAIN}/key.pem}%"
 stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config server.hostname "mail.benkner-it.com"
 stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config http.hsts true
 stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config http.permissive-cors false
