@@ -9,8 +9,8 @@ services:
         ipv4_address: 172.19.0.5
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - data:/opt/stalwart
-      - certs:/data/certs:ro
+      - /opt/mail-server/traefik/certs:/data/certs:ro
+      - ./data:/opt/stalwart
     labels:
       - traefik.enable=true
 
@@ -45,12 +45,6 @@ services:
       - traefik.tcp.routers.imaps.service=imaps
       - traefik.tcp.services.imaps.loadbalancer.server.port=993
       - traefik.tcp.services.imaps.loadbalancer.proxyProtocol.version=2
-      
-volumes:
-  data:
-  certs:
-    name: traefik_certs
-    external: true
 
 networks:
   proxy:

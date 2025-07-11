@@ -15,8 +15,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /etc/localtime:/etc/localtime:ro
-      - acme:/etc/certs
       - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./acme:/etc/certs
   
 
   traefik-certs-dumper:
@@ -27,13 +27,9 @@ services:
       - traefik
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - acme:/traefik:ro
-      - certs:/output
 
-
-volumes:
-  acme:
-  certs:
+      - ./acme:/traefik:ro
+      - ./certs:/output
 
 networks:
   proxy:
