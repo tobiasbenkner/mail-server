@@ -1,0 +1,19 @@
+services:
+  mailserver:
+    image: stalwartlabs/stalwart:latest
+    restart: always
+    hostname: mail.benkner-it.com
+    ports:
+      - 8080:8080
+      - 25:25
+      - 587:587
+      - 465:465
+      - 143:143
+      - 993:993
+      - 4190:4190
+      - 110:110
+      - 995:995
+      - 443:443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data:/opt/stalwart

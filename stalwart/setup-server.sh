@@ -34,4 +34,13 @@ stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config server.listener.sub
 stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config server.listener.submissions.proxy.trusted-networks.1 "172.19.0.0/16"
 stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config server.listener.submissions.tls.implicit true
 
+# optional
+stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config server.listener.submission.bind "[::]:587"
+stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config server.listener.submission.protocol "smtp"
+stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config server.listener.submission.proxy.override true
+stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config server.listener.submission.proxy.trusted-networks.0 "172.19.0.2"
+stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config server.listener.submission.proxy.trusted-networks.1 "172.19.0.0/16"
+stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server add-config server.listener.submission.tls.implicit true
+
+
 stalwart-cli -u ${ENDPOINT} -c ${PASSWORD} server reload-config
