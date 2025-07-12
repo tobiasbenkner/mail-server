@@ -12,6 +12,7 @@ services:
       - 443:443
       - 25:25
       - 465:465
+      - 587:587
       - 993:993
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro

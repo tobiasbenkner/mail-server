@@ -32,6 +32,13 @@ services:
       - traefik.tcp.services.jmap.loadbalancer.server.port=443
       - traefik.tcp.services.jmap.loadbalancer.proxyProtocol.version=2
 
+      - traefik.tcp.routers.starttls.rule=HostSNI(`*`)
+      - traefik.tcp.routers.starttls.tls.passthrough=true
+      - traefik.tcp.routers.starttls.entrypoints=starttls
+      - traefik.tcp.routers.starttls.service=starttls
+      - traefik.tcp.services.starttls.loadbalancer.server.port=587
+      - traefik.tcp.services.starttls.loadbalancer.proxyProtocol.version=2
+
       - traefik.tcp.routers.smtps.rule=HostSNI(`*`)
       - traefik.tcp.routers.smtps.tls.passthrough=true
       - traefik.tcp.routers.smtps.entrypoints=smtps

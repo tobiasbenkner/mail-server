@@ -106,12 +106,36 @@ reboot
 ## 🌍 DNS Configuration
 To ensure proper mail delivery and secure access, configure the following DNS records for your domain:
 
-| Hostname                      | Type  | Value                                    |
-| ----------------------------- | ----- | ---------------------------------------- |
-| `mail.benkner-it.com`         | A     | 142.132.239.60                           |
-| `mail.benkner-it.com`         | AAAA  | 2a01:04f8:c012:8036:0000:0000:0000:0001  |
-| `mta-sts.benkner-it.com`      | CNAME | mail.benkner-it.com                      |
-| `autoconfig.benkner-it.com`   | CNAME | mail.benkner-it.com                      |
-| `autodiscover.benkner-it.com` | CNAME | mail.benkner-it.com                      |
-| `benkner-it.com`              | MX    | mail.benkner-it.com                      |
+# DNS-Einträge für `benkner-it.com`
 
+## A and AAAA Records
+
+| Hostname              | Type | Value                                    |
+|-----------------------|------|------------------------------------------|
+| `mail.benkner-it.com` | A    | 142.132.239.60                           |
+| `mail.benkner-it.com` | AAAA | 2a01:04f8:c012:8036:0000:0000:0000:0001  |
+
+## CNAME Records
+
+| Hostname                      | Type   | Value               |
+|-------------------------------|--------|---------------------|
+| `mta-sts.benkner-it.com`      | CNAME  | mail.benkner-it.com |
+| `autoconfig.benkner-it.com`   | CNAME  | mail.benkner-it.com |
+| `autodiscover.benkner-it.com` | CNAME  | mail.benkner-it.com |
+
+## MX Record
+
+| Domain            | Type | Value               |
+|-------------------|------|---------------------|
+| `benkner-it.com`  | MX   | mail.benkner-it.com |
+
+## SRV Records
+
+| Service                              | Type | Priority | Port | Target              |
+|--------------------------------------|------|----------|------|---------------------|
+| `_caldavs._tcp.benkner-it.com`       | SRV  | 1        | 443  | mail.benkner-it.com |
+| `_carddavs._tcp.benkner-it.com`      | SRV  | 1        | 443  | mail.benkner-it.com |
+| `_imaps._tcp.benkner-it.com`         | SRV  | 1        | 993  | mail.benkner-it.com |
+| `_jmap._tcp.benkner-it.com`          | SRV  | 1        | 443  | mail.benkner-it.com |
+| `_submission._tcp.benkner-it.com`    | SRV  | 1        | 587  | mail.benkner-it.com |
+| `_autodiscover._tcp.benkner-it.com`  | SRV  | 0        | 443  | mail.benkner-it.com |
