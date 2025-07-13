@@ -1,0 +1,8 @@
+{
+  "name": "cert-monitor",
+  "version": "1.0.0",
+  "description": "Update TLSA records",
+  "scripts": {
+    "dev": "WATCH_FILES=./test.txt go run main.go"
+  }
+}

@@ -3,8 +3,8 @@ services:
     image: stalwartlabs/stalwart:latest
     restart: always
     hostname: mail.benkner-it.com
+    container_name: mailserver
     ports:
-      - 8080:8080
       - 25:25
       - 587:587
       - 465:465
